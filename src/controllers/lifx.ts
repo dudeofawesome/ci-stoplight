@@ -36,11 +36,10 @@ export class LifxController {
 
   private actuatePassed (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.LifxClient.setState('all', {
-        power: 'on',
+      this.LifxClient.breathe('all', {
         color: '#00FF00',
-        brightness: 1,
-        duration: 0.5
+        period: 2.5,
+        cycles: 3
       }).then((data) => {
         resolve(data);
       });
@@ -49,11 +48,10 @@ export class LifxController {
 
   private actuateStarted (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.LifxClient.setState('all', {
-        power: 'on',
+      this.LifxClient.breathe('all', {
         color: 'hue:30 saturation:1.0 brightness:1.0',
-        brightness: 1,
-        duration: 0.5
+        period: 2.5,
+        cycles: 3
       }).then((data) => {
         resolve(data);
       });
@@ -62,11 +60,10 @@ export class LifxController {
 
   private actuateFailed (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.LifxClient.setState('all', {
-        power: 'on',
+      this.LifxClient.breathe('all', {
         color: '#FF0000',
-        brightness: 1,
-        duration: 0.5
+        period: 2.5,
+        cycles: 3
       }).then((data) => {
         resolve(data);
       });

@@ -1,4 +1,4 @@
-import { ILifxClient, ILifxOptions, LifxSelector, ILifxState } from '../../../custom-typings';
+import { ILifxClient, ILifxOptions, LifxSelector, ILifxState, ILifxBreatheState } from '../../../custom-typings';
 
 export class LifxClientMock implements ILifxClient {
   constructor (private options: ILifxOptions) {}
@@ -9,6 +9,11 @@ export class LifxClientMock implements ILifxClient {
     });
   };
   setState (selector: LifxSelector, settings: ILifxState, callback?: (err: Error, data: any) => void): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      resolve();
+    });
+  };
+  breathe (selector: LifxSelector, settings: ILifxBreatheState, callback?: (err: Error, data: any) => void): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       resolve();
     });
