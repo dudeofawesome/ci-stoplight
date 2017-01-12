@@ -4,8 +4,7 @@
   "description": "CI stoplight using LifX bulbs",
   "main": "build/index.js",
   "engines": {
-    "node": ">=6.9.0 <7.0.0",
-    "npm": "3.10.10"
+    "node": ">=6.9.0 <7.0.0"
   },
   "scripts": {
     "start": "if [ \"$BUILD\" = \"true\" ] ;then npm run build; fi; if [ \"$DEPLOY\" = \"true\" ] ;then node .; fi",

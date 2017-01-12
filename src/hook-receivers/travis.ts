@@ -2,7 +2,7 @@ import * as Express from 'express';
 import { Application } from 'express';
 import * as BodyParser from 'body-parser';
 import { Observable, Subscriber } from 'rxjs';
-import { ITravisWebHook } from '../custom-typings';
+import { ITravisWebHook, StatusMessage } from '../custom-typings';
 
 import { BuildStatus } from '../models';
 
@@ -19,20 +19,21 @@ export class TravisHookReceiver {
       this.app.use(BodyParser.json());
 
       this.app.get(`/`, (req, res) => {
-        console.log(process.uptime());
         res.json({uptime: process.uptime()});
       });
 
       this.app.post(`/travis-ci`, (req, res) => {
         const payload: ITravisWebHook = JSON.parse(req.body.payload);
+        console.log(payload);
+        console.log(StatusMessage.BROKEN);
         switch (payload.status_message) {
-          case 'Failed': case 'Canceled':
+          case StatusMessage.BROKEN: case StatusMessage.FAILED: case StatusMessage.STILL_FAILING:
             this.emit(BuildStatus.FAILED);
             break;
-          case 'Started':
+          case StatusMessage.PENDING:
             this.emit(BuildStatus.STARTED);
             break;
-          case 'Passed':
+          case StatusMessage.PASSED:
             this.emit(BuildStatus.PASSED);
             break;
         }
