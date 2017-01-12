@@ -43,3 +43,12 @@ before_script:
 
 script:
   - yarn test
+
+
+notifications:
+  webhooks:
+    urls:
+      - https://ci-stoplight.herokuapp.com/travis-ci
+    on_start: always
+    on_success: always
+    on_failure: always
