@@ -12,7 +12,7 @@ export class LifxController {
   }
 
   public start () {
-    this.actuate(1);
+    return;
   }
 
   public actuate (state: BuildStatus): Promise<void> {

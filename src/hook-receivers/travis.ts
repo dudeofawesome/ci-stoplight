@@ -25,7 +25,6 @@ export class TravisHookReceiver {
       this.app.post(`/travis-ci`, (req, res) => {
         const payload: ITravisWebHook = JSON.parse(req.body.payload);
         console.log(payload);
-        console.log(StatusMessage.BROKEN);
         switch (payload.status_message) {
           case StatusMessage.BROKEN: case StatusMessage.FAILED: case StatusMessage.STILL_FAILING:
             this.emit(BuildStatus.FAILED);
@@ -54,11 +53,6 @@ export class TravisHookReceiver {
   public start (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.app.listen(process.env.PORT, () => {
-
-        setTimeout(() => {
-          this.emit(BuildStatus.FAILED);
-        }, 1000);
-
         resolve();
       });
     });
