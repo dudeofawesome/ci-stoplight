@@ -38,7 +38,6 @@ branches:
     - feature-tests
 
 before_script:
-  - yes | yarn run fill-local-db
   - gulp build
   - gulp build:tests
 
