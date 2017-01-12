@@ -6,9 +6,13 @@ export class LifxController {
   client;
 
   public init () {
-    this.client = new LifxAPI({
-      bearerToken: process.env.LIFX_BEARER_TOKEN
-    });
+    if (process.env.LIFX_BEARER_TOKEN) {
+      this.client = new LifxAPI({
+        bearerToken: process.env.LIFX_BEARER_TOKEN
+      });
+    } else {
+      throw new Error(`LIFX_BEARER_TOKEN is not set.`);
+    }
   }
 
   public start () {
