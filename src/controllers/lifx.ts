@@ -1,22 +1,21 @@
 import * as LifxAPI from 'lifx-http-api';
+import { ILifxClient } from '../custom-typings';
 
 import { BuildStatus } from '../models';
 
 export class LifxController {
-  client;
+  constructor (private LifxClient: ILifxClient) {}
 
-  public init () {
-    if (process.env.LIFX_BEARER_TOKEN) {
-      this.client = new LifxAPI({
-        bearerToken: process.env.LIFX_BEARER_TOKEN
-      });
-    } else {
-      throw new Error(`LIFX_BEARER_TOKEN is not set.`);
-    }
+  public init (): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      resolve();
+    });
   }
 
-  public start () {
-    return;
+  public start (): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      resolve();
+    });
   }
 
   public actuate (state: BuildStatus): Promise<void> {
@@ -37,17 +36,12 @@ export class LifxController {
 
   private actuatePassed (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.client.setState('all', {
+      this.LifxClient.setState('all', {
         power: 'on',
         color: '#00FF00',
         brightness: 1,
         duration: 0.5
-      }, (err, data) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        }
-
+      }).then((data) => {
         resolve(data);
       });
     });
@@ -55,17 +49,12 @@ export class LifxController {
 
   private actuateStarted (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.client.setState('all', {
+      this.LifxClient.setState('all', {
         power: 'on',
         color: 'hue:30 saturation:1.0 brightness:1.0',
         brightness: 1,
         duration: 0.5
-      }, (err, data) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        }
-
+      }).then((data) => {
         resolve(data);
       });
     });
@@ -73,17 +62,12 @@ export class LifxController {
 
   private actuateFailed (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.client.setState('all', {
+      this.LifxClient.setState('all', {
         power: 'on',
         color: '#FF0000',
         brightness: 1,
         duration: 0.5
-      }, (err, data) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        }
-
+      }).then((data) => {
         resolve(data);
       });
     });

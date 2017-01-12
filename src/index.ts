@@ -1,3 +1,5 @@
+import * as LifxClient from 'lifx-http-api';
+
 import { TravisHookReceiver } from './hook-receivers';
 import { LifxController } from './controllers';
 
@@ -9,7 +11,9 @@ export class Main {
 
   constructor () {
     this.hookReceivers.push(new TravisHookReceiver());
-    this.controllers.push(new LifxController());
+    this.controllers.push(new LifxController(new LifxClient({
+      bearerToken: process.env.LIFX_BEARER_TOKEN
+    })));
   }
 
   init () {
