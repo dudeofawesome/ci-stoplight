@@ -53,7 +53,7 @@ export class LifxController {
     return new Promise<void>((resolve, reject) => {
       this.client.setState('all', {
         power: 'on',
-        color: '#f4d742',
+        color: 'hue:30 saturation:1.0 brightness:1.0',
         brightness: 1,
         duration: 0.5
       }, (err, data) => {
