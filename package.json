@@ -21,7 +21,7 @@
     "@types/body-parser": "^0.0.33",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "lifx-http-api": "https://github.com/dudeofawesome/lifx-http-api#patch-1",
+    "lifx-http-api": "https://github.com/dudeofawesome/lifx-http-api#feature-typings",
     "rxjs": "^5.0.3"
   },
   "devDependencies": {

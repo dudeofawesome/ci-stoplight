@@ -1,5 +1,5 @@
 import * as LifxAPI from 'lifx-http-api';
-import { ILifxClient } from '../custom-typings';
+import { ILifxClient } from 'lifx-http-api/dist/lifx-types';
 
 import { BuildStatus } from '../models';
 

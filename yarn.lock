@@ -1297,9 +1297,9 @@ liftoff@^2.1.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
-"lifx-http-api@https://github.com/dudeofawesome/lifx-http-api#patch-1":
+"lifx-http-api@https://github.com/dudeofawesome/lifx-http-api#feature-typings":
   version "1.0.2"
-  resolved "https://github.com/dudeofawesome/lifx-http-api#fb476c682da02e10c2321a8d4494d6aed601f37f"
+  resolved "https://github.com/dudeofawesome/lifx-http-api#9a236eeb549f638427e478616368e299707f58d6"
   dependencies:
     lodash "^4.2.1"
     q "^1.4.1"
