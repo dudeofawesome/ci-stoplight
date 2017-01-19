@@ -49,7 +49,7 @@ export class LifxController {
   private actuateStarted (): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       this.LifxClient.breathe('all', {
-        color: 'hue:30 saturation:1.0 brightness:1.0',
+        color: 'hue:39 saturation:1.0 brightness:1.0',
         period: 2.5,
         cycles: 3
       }).then((data) => {
