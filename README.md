@@ -2,7 +2,7 @@
 
 ## Set up with Travis CI and LifX
 
-1. Go to cloud.lifx.com to get a LifX bearer token for your account.
+1. Go to [cloud.lifx.com](cloud.lifx.com) to get a LifX bearer token for your account.
 1. Get IDs for the bulbs you want to use
     1. Make a request to the LifX API
         ```bash
