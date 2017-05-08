@@ -39,7 +39,7 @@ export class LifxController {
       this.LifxClient.breathe(this.getEntityIds(), {
         color: '#00FF00',
         period: 2.5,
-        cycles: 3
+        cycles: 2
       }).then((data) => {
         resolve(data);
       });
@@ -51,7 +51,7 @@ export class LifxController {
       this.LifxClient.breathe(this.getEntityIds(), {
         color: 'hue:39 saturation:1.0 brightness:1.0',
         period: 2.5,
-        cycles: 3
+        cycles: 2
       }).then((data) => {
         resolve(data);
       });
@@ -63,7 +63,7 @@ export class LifxController {
       this.LifxClient.breathe(this.getEntityIds(), {
         color: '#FF0000',
         period: 2.5,
-        cycles: 3
+        cycles: 2
       }).then((data) => {
         resolve(data);
       });
